@@ -1,0 +1,155 @@
+h2. Creación de una guía
+
+Pasos necesarios para la creación de una nueva guía. Desde la estructura de la misma a la edición de los archivos textile
+
+endprologue.
+
+h3. Generación de la estructura de la guía
+
+Para generar la estructura de una guía con Rails Guides debemos hacer uso de la gema guides instalada previamente.
+Simplemente debemos ejecutar, en el directorio en el cual queramos generar la guía el comando:
+
+<ruby>
+guides new nombre_guia
+</ruby>
+
+Se nos generará en la carpeta nombre_guia un directorio con la siguiente estructura de carpetas y archivos:
+
+* *assets*: Contendrá las imágenes, los javascript y los estilos css utilizados en nuestra guía.
+    ** images
+    ** javascripts
+    ** stylesheets
+* *source*: Contiene el código fuente en formato html y textile de cada una de las páginas de nuestra guía.
+* guides.yml: En este archivo se define el título, la descripción, autores y las páginas principales que van a formar nuestra guía.
+
+h3. Edición del archivo guides.yml
+
+Cómo hemos visto en el apartado anterior en el archivo guides.yml estará definida la estructura principal de nuestra guía así como el título de la misma, su descripción y otros datos extra como los autores de la misma. Vamos a ver un ejemplo de cómo está definido.
+
+<ruby>
+title: "Creación de guías con Rails Guides" #Título de nuestra guía
+description: Esta guía mostrará los pasos a seguir para generar nuevas guías con Rails Guides #Descripción de la guía
+
+authors: #Autores de la guía
+  "Autor de la guía": #Función del listado de autores (Texto, Diseño....) puede contener un listado de autores. (Un autor por cada - name:)
+    - name: Hugo Santos
+      nick: hugosantos     
+
+
+index: #Contiene cada uno de los apartados que van a conformar nuestra guía
+  "1.- Empieza Aquí": #Cada entrada a este nivel se corresponderá con un apartado principal en la home
+    #Cada entrada al mismo nivel que - title será un subapartado perteneciente
+    #al apartado principal en el que está descrito
+    - title: Requisitos Necesarios #Será el titulo del subapartado
+      url: requisitos_necesarios #Si se encuentra un archivo del mismo nombre en la carpeta sources en formato textile se generará un enlace automáticamente al mismo
+      text: Instalación de los requisitos necesarios para la creación de nuevas guías. #Descripción de este subapartado
+  "2.- Creación de guías":
+    - title: Creación de una nueva guía
+      url: creacion_guia
+      text: Pasos necesarios para la creación de una nueva guía.
+</ruby>
+
+h3. Creación de nuevos apartados en la guía.
+
+h4. Creación de archivos necesarios.
+
+Como hemos visto en el apartado anterior por cada subapartado tendremos una url definida y para que se genere un enlace al subapartado correspondiente debemos tener un archivo .textile llamado exactamente igual que esta url dentro de la carpeta sources.
+
+Por este motivo para cada url debemos crear dentro de la carpeta sources su correspondiente archivo.
+Por ejemplo según nuestro archivo de configuración yml en el cual tendremos la siguiente entrada:
+<ruby>
+    - title: Creación de una nueva guía
+      url: creacion_guia
+      text: Pasos necesarios para la creación de una nueva guía.
+</ruby>
+
+Tendremos que crear entonces el archivo creacion_guia.textile dentro de la carpeta source.
+
+h3. Edición de archivos .textile
+
+Para editar un archivo .textile solamente se necesita un editor de texto plano y unos conocimientos básicos del lenguaje textile.
+
+h4. Guía básica textile
+
+Puede seguirse una guía básica de textile "aquí":http://tutorialcyclope3.codigosur.net/article/el-lenguaje-de-marcado-textile/
+
+h5. Notaciones especiales textile Rails Guides
+
+* Para definir el texto del título de la página y su descripción:
+
+<ruby>
+    h2. Creación de una guía #El título de este apartado
+
+    #Aquí empieza la descripción de este apartado de la guía
+    Pasos necesarios para la creación de una nueva guía. Desde la estructura de la misma a la edición de los archivos textile
+
+    endprologue. #Hay que poner este marcado para indicar la finalización de la cabecera de la guía (Título y descripción)
+</ruby>
+
+* Para definir un cápitulo en el apartado (Se establecerán automáticamente las entradas al menú de capitulos):
+
+<ruby>
+    #Los capitulos dentro del apartado se definen mediante la marca textile h3.
+    #Los subapartados de un capítulo se definen mediante las marcas h4. h5. ....
+
+    h3. Creación de nuevos apartados en la guía. # 1.
+    h4. Guía Básica textile # 1.1
+    h5. Subentrada de h4. # 1.1.1
+    h5. Otra subentrada # 1.1.2
+    h4. Hijo de h3. # 1.2
+    h5. hijo de este h4. # 1.2.1
+
+</ruby>
+
+* Hay que tener en cuenta que solamente se generarán las entradas del menú para los marcados <code>h3.</code> y <code>h4.</code>
+
+h5. Otras notaciones útiles de textile
+
+* Alineación de parrafos:
+** Podemos alinear el texto de los parrafos a la izquierda, a la derecha o al centro forzando el tag del parrafo y la marca de alineación (<,>,=)
+
+<ruby>
+    p<. Esto será un parrafo alineado a la izquierda
+    p>. Esto será un parrafo alineado a la derecha
+    p=. Esto será un parrafo centrado
+</ruby>
+
+* Inserción de imagenes
+** Es posible insertar imagenes mediante el siguiente código
+
+<ruby>
+    !url_imagen!
+
+    #Ejemplo
+    !http://www.google.es/logos/2011/stbasilscathedral11-hp.jpg!
+
+    #Es posible alinear la imagen a un parrafo usando los tags de alineación como hemos visto anteriormente
+    p=. !http://www.google.es/logos/2011/stbasilscathedral11-hp.jpg!
+</ruby>
+
+* La imágen centrada quedaría así:
+
+p=. !http://www.google.es/logos/2011/stbasilscathedral11-hp.jpg!
+
+* Para el resto de marcados puede usarse la notación textile vista anteriormente.
+
+h3. Previsualización de una guía
+
+Podemos previsualizar cómo va a quedar una guía colocandonos con la terminal en el directorio principal de la guía y ejecutando el siguente comando:
+
+<ruby>
+    guides preview
+</ruby>
+
+Esto generará un servidor al cual podremos acceder mediante un navegador en la dirección "localhost:9292":http://localhost:9292
+
+h3. Generación del código html de la guía.
+
+Una vez finalizada la guía el último paso a realizar es la generación del código fuente html para nuestra guía.
+
+Para ello simplemente debemos situarnos con la terminal en el directorio de nuestra guía y ejecutar el siguiente comando:
+<ruby>
+    guides build
+</ruby>
+
+Este comando generará un nuevo directorio llamado output que contendrá las imagenes, javascripts, css y los archivos html generados para nuestra guía y listos para su distribución.

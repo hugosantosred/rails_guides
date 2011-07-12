@@ -1,0 +1,19 @@
+title: "Creación de guías con Rails Guides"
+description: Esta guía mostrará los pasos a seguir para generar nuevas guías con Rails Guides
+
+authors:
+  "Autor de la guía":
+    - name: Hugo Santos
+      nick: hugosantos
+      description: Autor de esta guía
+
+
+index:
+  "1.- Empieza Aquí":
+    - title: Requisitos Necesarios
+      url: requisitos_necesarios
+      text: Instalación de los requisitos necesarios para la creación de nuevas guías.
+  "2.- Creación de guías":
+    - title: Creación de una nueva guía
+      url: creacion_guia
+      text: Pasos necesarios para la creación de una nueva guía.

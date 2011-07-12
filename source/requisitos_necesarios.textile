@@ -1,0 +1,37 @@
+h2. Requisitos Necesarios
+
+endprologue.
+
+Para la generación de guías en textile el único requisito es tener ruby y rubygems instalados además de la gema guides.
+
+h3. Instalación en Ubuntu
+
+h4. Instalación de Ruby
+
+Para instalar ruby simplemente abre una nueva terminal y ejecuta el siguiente comando
+<ruby>
+sudo apt-get install ruby
+</ruby>
+
+h4. Instalación de RubyGems
+
+Para instalar rubygems es necesario descargar el paquete ruby de la página web "www.rubygems.org":http://rubygems.org/pages/download y descargar el paquete TGZ.
+
+Una vez descargado el paquete es necesario descomprimirlo en una carpeta, después de descomprimir nos situamos en el directorio creado y ejecutamos desde una terminal el siguiente comando
+<ruby>
+sudo ruby setup.rb
+</ruby>
+
+Al realizar este paso se nos generará un nuevo ejecutable en el sistema que dependerá de la versión de rubygems instalada este ejecutable puede ser: 
+* gem
+* gem1.8
+
+h4. Instalación de la gema guides
+
+El último requisito para la generación de guías es la instalación de la gema guides
+
+Para ello en una terminal ejecutamos el siguiente comando.
+
+<ruby>
+sudo gem1.8 install guides
+</ruby>
