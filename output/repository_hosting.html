@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Creación de guías con Rails Guides: Repository Hosting</title>
+
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="stylesheets/overrides.style.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/overrides.print.css" media="print" />
+
+
+<link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
+
+<script type="text/javascript" src="javascripts/jquery-1.4.3.min.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+
+<script type="text/javascript">
+		$(document).ready(function() {
+			$("a#gallery").fancybox({
+				'width'				: '1024px',				
+				'autoScale'			: true,				
+			});
+			});
+</script>
+</head>
+<body class="guide">
+  <div id="topNav">
+    <div class="wrapper">
+      
+    </div>
+  </div>
+  <div id="header">
+    <div class="wrapper clearfix">
+      <h1><a href="index.html" title="Return to home page">Creación de guías con Rails Guides</a></h1>
+      <p class="hide"><a href="#mainCol">Skip navigation</a>.</p>
+      <ul class="nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="index"><a href="index.html" onclick="guideMenu(); return false;" id="guidesMenu">Indice <span id="guidesArrow">&#9656;</span></a>
+          <div id="guides" class="clearfix" style="display: none;">
+            <hr />
+            <dl class="L">
+    <dt>1.- Empieza Aquí</dt>
+      <dd><a href="requisitos_necesarios.html">Requisitos Necesarios</a></dd>
+    <dt>3.- Repository Hosting</dt>
+      <dd><a href="repository_hosting.html">Repository Hosting</a></dd>
+</dl>
+<dl class="R">
+    <dt>2.- Creación de guías</dt>
+      <dd><a href="creacion_guia.html">Creación de una nueva guía</a></dd>
+</dl>
+
+
+          </div>
+        </li>        
+        <li><a href="credits.html">Creditos</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr class="hide" />
+
+  <div id="feature">
+    <div class="wrapper">
+      <h2>Repository Hosting</h2>
+
+      <div id="subCol">
+        <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Cápitulos</h3>
+        <ol class="chapters">
+          <li><a href="#creacion-de-un-nuevo-repositorio-en-repository-hosting"><p>Creación de un nuevo repositorio en Repository Hosting</p>
+</a></li><li><a href="#creacion-de-repositorio-git-en-local-solamente-si-no-esta-creado"><p>Creación de repositorio git en local (Solamente si no está creado)</p>
+</a></li><li><a href="#subir-cambios-al-repositorio-remoto"><p>Subir cambios al repositorio remoto</p>
+</a></li><li><a href="#clonar-guias-del-repositorio-remoto-y-descargar-sus-cambios"><p>Clonar guías del repositorio remoto y descargar sus cambios</p>
+</a><ul><li><a href="#descargar-cambios-del-repositorio"><p>Descargar cambios del repositorio</p>
+</a></li></ul></li>
+        </ol>
+      </div>
+      
+    </div>
+  </div>
+
+  <div id="container">
+    <div class="wrapper">
+      <div id="mainCol">
+        <h3 id="creacion-de-un-nuevo-repositorio-en-repository-hosting">1 Creación de un nuevo repositorio en Repository Hosting</h3>
+<p>Lo primero que debemos hacer es crear un nuevo repositorio Git en nuestra página personalizada de Repository Hosting</p>
+<div class="note"><p><a href="https://ting.repositoryhosting.com">ting.repositoryhosting.com</a></p></div>
+<p>Una vez que hemos iniciado sesión con nuestro usuario y contraseña aparecerá el dashboard con todos los proyectos actuales.</p>
+<p style="text-align:center;"><a id="gallery" href="images/dashboard.png"><img src="images/dashboard.png" style="width:630px;" alt="" /></a></p>
+<p>El siguiente paso será crear el repositorio que va a alojar nuestra guía. Para ello haremos click en Create Project, rellenamos los datos del proyecto, establecemos que el sistema de repositorio va a ser git, seleccionamos que es de la categoría Manuales y guías y le damos a crear.</p>
+<p style="text-align:center;"><a id="gallery" href="images/nuevo_proyecto.png"><img src="images/nuevo_proyecto.png" style="width:630px;" alt="" /></a></p>
+<p>Una vez completados estos pasos ya tenemos nuestro repositorio creado.</p>
+<h3 id="creacion-de-repositorio-git-en-local-solamente-si-no-esta-creado">2 Creación de repositorio git en local (Solamente si no está creado)</h3>
+<p>Debemos tener nuestra guía controlada con git también en local. Para realizar esto debemos situarnos en el directorio que contiene la guía y ejecutar:</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+git init</pre></div><p>El siguiente paso será asociar el repositorio remoto con el repositorio local. Para ello hacemos click en settings a la derecha del nombre del proyecto en el dashboard y aparecerá la siguiente pantalla.</p>
+<p style="text-align:center;"><a id="gallery" href="images/settings_repository.png"><img src="images/settings_repository.png" style="width:630px;" alt="" /></a></p>
+<div class="note"><p>La dirección de nuestro repositorio remoto que vamos a usar es la dirección que aparece en repository urls con el formato ssh. En el caso del repositorio de esta guía: ssh://git@ting.repositoryhosting.com/ting/manual-guias.git</p></div>
+<p>Una vez tengamos localizada la dirección de nuestro repositorio remoto tendremos que ejecutar los siguientes comandos en nuestro repositorio local.</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+git remote add origin ssh://git@ting.repositoryhosting.com/ting/manual-guias.git
+git config remote.origin.push refs/heads/master:refs/heads/master
+</pre></div><h3 id="subir-cambios-al-repositorio-remoto">3 Subir cambios al repositorio remoto</h3>
+<p>Para subir cambios al repositorio remoto tendremos que ejecutar, desde el directorio del repositorio, los siguientes comandos:</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+git add .
+</pre></div><p>Este comando añade los ficheros nuevos que hemos creado (salvo que se encuentren especificamente en el fichero .gitignore) y los ficheros que hemos cambiado a la lista de cambios del repositorio.</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+git commit -m &quot;Cambios que has realizado&quot;
+</pre></div><p>El comando git commit confirma todos los cambios realizados y añade a ese commit la descripción pasada mediante el parámetro -m</p>
+<p>El siguiente paso sería subir estos cambios que hemos realizado a nuestro repositorio remoto.</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+git push origin master
+</pre></div><p>Con este comando le estamos indicando que suba los cambios al repositorio remoto llamado origin (Lo hemos configurado así al añadirlo) y que suba los cambios de la rama master del repositorio.</p>
+<p>Una vez completado esto tendremos nuestra guía subida a repository hosting.</p>
+<h3 id="clonar-guias-del-repositorio-remoto-y-descargar-sus-cambios">4 Clonar guías del repositorio remoto y descargar sus cambios</h3>
+<p>Si queremos descargarnos una guía de repository hosting tenemos que clonar su repositorio en nuestro ordenador. Para ello ejecutamos el comando:</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+git clone ssh://git@ting.repositoryhosting.com/ting/manual-guias.git
+</pre></div><p>Este comando descargará la rama actual de ese repositorio, creando un directorio llamado manual-guias dentro del directorio desde el que hayamos ejecutado ese comando.</p>
+<h4 id="descargar-cambios-del-repositorio">4.1 Descargar cambios del repositorio</h4>
+<p>Si ya tenemos un repositorio clonado en nuestro ordenador (o un repositorio creado por nosotros y subido) podemos descargar los últimos cambios que se han producido en el con el siguiente comando:</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+git pull origin master
+</pre></div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="hide" />
+  <div id="footer">
+    <div class="wrapper">
+      
+    </div>
+  </div>
+
+  <script type="text/javascript" src="javascripts/guides.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shCore.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushRuby.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushJScript.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushCss.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushXml.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushSql.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushPlain.js"></script>
+  <script type="text/javascript">
+    SyntaxHighlighter.all()
+  </script>
+</body>
+</html>

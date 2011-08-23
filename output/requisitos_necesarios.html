@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title><%= yield(:page_title) %></title>
+<title>Creación de guías con Rails Guides: Requisitos Necesarios</title>
 
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
 <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
@@ -30,26 +30,32 @@
 </script>
 </head>
 <body class="guide">
-  <% if @edge %>
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
-  <% end %>
   <div id="topNav">
     <div class="wrapper">
-      <%= yield :top_nav %>
+      
     </div>
   </div>
   <div id="header">
     <div class="wrapper clearfix">
-      <h1><a href="index.html" title="Return to home page"><%= Guides.meta["title"] %></a></h1>
+      <h1><a href="index.html" title="Return to home page">Creación de guías con Rails Guides</a></h1>
       <p class="hide"><a href="#mainCol">Skip navigation</a>.</p>
       <ul class="nav">
         <li><a href="index.html">Inicio</a></li>
         <li class="index"><a href="index.html" onclick="guideMenu(); return false;" id="guidesMenu">Indice <span id="guidesArrow">&#9656;</span></a>
           <div id="guides" class="clearfix" style="display: none;">
             <hr />
-            <%= clickable_index %>
+            <dl class="L">
+    <dt>1.- Empieza Aquí</dt>
+      <dd><a href="requisitos_necesarios.html">Requisitos Necesarios</a></dd>
+    <dt>3.- Repository Hosting</dt>
+      <dd><a href="repository_hosting.html">Repository Hosting</a></dd>
+</dl>
+<dl class="R">
+    <dt>2.- Creación de guías</dt>
+      <dd><a href="creacion_guia.html">Creación de una nueva guía</a></dd>
+</dl>
+
+
           </div>
         </li>        
         <li><a href="credits.html">Creditos</a></li>
@@ -60,18 +66,18 @@
 
   <div id="feature">
     <div class="wrapper">
-    <% if header_section = yield(:header_section).presence %>
-      <%= header_section %>
+      <h2>Requisitos Necesarios</h2>
+
       <div id="subCol">
         <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Cápitulos</h3>
         <ol class="chapters">
-          <%= yield(:index_items) %>
+          <li><a href="#instalacion-en-ubuntu"><p>Instalación en Ubuntu</p>
+</a><ul><li><a href="#instalacion-de-ruby"><p>Instalación de Ruby</p>
+</a></li> <li><a href="#instalacion-de-rubygems"><p>Instalación de RubyGems</p>
+</a></li> <li><a href="#instalacion-de-la-gema-guides"><p>Instalación de la gema guides</p>
+</a></li></ul></li>
         </ol>
       </div>
-    <% else %>
-      <h2><%= Guides.meta["title"] %></h2>
-      <p><%= Guides.meta["description"] %></p>
-    <% end %>
       
     </div>
   </div>
@@ -79,7 +85,35 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <%= yield %>
+        <p>Para la generación de guías en textile el único requisito es tener ruby y rubygems instalados además de la gema guides.</p>
+<h3 id="instalacion-en-ubuntu">1 Instalación en Ubuntu</h3>
+<h4 id="instalacion-de-ruby">1.1 Instalación de Ruby</h4>
+<p>Para instalar ruby simplemente abre una nueva terminal y ejecuta el siguiente comando</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+sudo apt-get install ruby
+</pre></div><h4 id="instalacion-de-rubygems">1.2 Instalación de RubyGems</h4>
+<p>Para instalar rubygems es necesario descargar el paquete ruby de la página web <a href="http://rubygems.org/pages/download">www.rubygems.org</a> y descargar el paquete <span class="caps">TGZ</span>.</p>
+<p>Una vez descargado el paquete es necesario descomprimirlo en una carpeta, después de descomprimir nos situamos en el directorio creado y ejecutamos desde una terminal el siguiente comando</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+sudo ruby setup.rb
+</pre></div><p>Al realizar este paso se nos generará un nuevo ejecutable en el sistema que dependerá de la versión de rubygems instalada este ejecutable puede ser:</p>
+<ul>
+	<li>gem</li>
+	<li>gem1.8</li>
+</ul>
+<h4 id="instalacion-de-la-gema-guides">1.3 Instalación de la gema guides</h4>
+<p>El último requisito para la generación de guías es la instalación de la gema guides</p>
+<p>Para ello en una terminal ejecutamos el siguiente comando.</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+sudo gem1.8 install guides
+</pre></div>
+
       </div>
     </div>
   </div>
@@ -87,7 +121,7 @@
   <hr class="hide" />
   <div id="footer">
     <div class="wrapper">
-      <%= yield :license %>
+      
     </div>
   </div>
 

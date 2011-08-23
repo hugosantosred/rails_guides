@@ -5,7 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title><%= yield(:page_title) %></title>
+<title>Creación de guías con Rails GuidesCreación de guías con Rails Guides: Credits
+</title>
 
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
 <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
@@ -30,26 +31,33 @@
 </script>
 </head>
 <body class="guide">
-  <% if @edge %>
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
-  <% end %>
   <div id="topNav">
     <div class="wrapper">
-      <%= yield :top_nav %>
+      
+
     </div>
   </div>
   <div id="header">
     <div class="wrapper clearfix">
-      <h1><a href="index.html" title="Return to home page"><%= Guides.meta["title"] %></a></h1>
+      <h1><a href="index.html" title="Return to home page">Creación de guías con Rails Guides</a></h1>
       <p class="hide"><a href="#mainCol">Skip navigation</a>.</p>
       <ul class="nav">
         <li><a href="index.html">Inicio</a></li>
         <li class="index"><a href="index.html" onclick="guideMenu(); return false;" id="guidesMenu">Indice <span id="guidesArrow">&#9656;</span></a>
           <div id="guides" class="clearfix" style="display: none;">
             <hr />
-            <%= clickable_index %>
+            <dl class="L">
+    <dt>1.- Empieza Aquí</dt>
+      <dd><a href="requisitos_necesarios.html">Requisitos Necesarios</a></dd>
+    <dt>3.- Repository Hosting</dt>
+      <dd><a href="repository_hosting.html">Repository Hosting</a></dd>
+</dl>
+<dl class="R">
+    <dt>2.- Creación de guías</dt>
+      <dd><a href="creacion_guia.html">Creación de una nueva guía</a></dd>
+</dl>
+
+
           </div>
         </li>        
         <li><a href="credits.html">Creditos</a></li>
@@ -60,18 +68,16 @@
 
   <div id="feature">
     <div class="wrapper">
-    <% if header_section = yield(:header_section).presence %>
-      <%= header_section %>
+      <h2>Creditos</h2>
+
+<p></p>
+
       <div id="subCol">
         <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Cápitulos</h3>
         <ol class="chapters">
-          <%= yield(:index_items) %>
+          
         </ol>
       </div>
-    <% else %>
-      <h2><%= Guides.meta["title"] %></h2>
-      <p><%= Guides.meta["description"] %></p>
-    <% end %>
       
     </div>
   </div>
@@ -79,7 +85,15 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <%= yield %>
+        
+
+<h3 class="section"></h3>
+
+  <h3 class="section">Autor de la guía</h3>
+    <div class="author clearfix" id="hugosantos"><img alt="Hugo Santos" class="left pic" src="images/credits_pic_blank.gif"></img><h3>Hugo Santos</h3><p>
+      Autor de esta guía
+</p></div>
+
       </div>
     </div>
   </div>
@@ -87,7 +101,14 @@
   <hr class="hide" />
   <div id="footer">
     <div class="wrapper">
-      <%= yield :license %>
+      
+  <p>This work is licensed under a
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike 3.0</a>
+    license.
+  </p>
+  <p>
+  </p>
+
     </div>
   </div>
 

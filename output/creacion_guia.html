@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Creación de guías con Rails Guides: Creación de una guía</title>
+
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="stylesheets/overrides.style.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/overrides.print.css" media="print" />
+
+
+<link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
+
+<script type="text/javascript" src="javascripts/jquery-1.4.3.min.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+
+<script type="text/javascript">
+		$(document).ready(function() {
+			$("a#gallery").fancybox({
+				'width'				: '1024px',				
+				'autoScale'			: true,				
+			});
+			});
+</script>
+</head>
+<body class="guide">
+  <div id="topNav">
+    <div class="wrapper">
+      
+    </div>
+  </div>
+  <div id="header">
+    <div class="wrapper clearfix">
+      <h1><a href="index.html" title="Return to home page">Creación de guías con Rails Guides</a></h1>
+      <p class="hide"><a href="#mainCol">Skip navigation</a>.</p>
+      <ul class="nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="index"><a href="index.html" onclick="guideMenu(); return false;" id="guidesMenu">Indice <span id="guidesArrow">&#9656;</span></a>
+          <div id="guides" class="clearfix" style="display: none;">
+            <hr />
+            <dl class="L">
+    <dt>1.- Empieza Aquí</dt>
+      <dd><a href="requisitos_necesarios.html">Requisitos Necesarios</a></dd>
+    <dt>3.- Repository Hosting</dt>
+      <dd><a href="repository_hosting.html">Repository Hosting</a></dd>
+</dl>
+<dl class="R">
+    <dt>2.- Creación de guías</dt>
+      <dd><a href="creacion_guia.html">Creación de una nueva guía</a></dd>
+</dl>
+
+
+          </div>
+        </li>        
+        <li><a href="credits.html">Creditos</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr class="hide" />
+
+  <div id="feature">
+    <div class="wrapper">
+      <h2>Creación de una guía</h2>
+<p>Pasos necesarios para la creación de una nueva guía. Desde la estructura de la misma a la edición de los archivos textile</p>
+
+      <div id="subCol">
+        <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Cápitulos</h3>
+        <ol class="chapters">
+          <li><a href="#generacion-de-la-estructura-de-la-guia"><p>Generación de la estructura de la guía</p>
+</a></li><li><a href="#edicion-del-archivo-guides-yml"><p>Edición del archivo guides.yml</p>
+</a></li><li><a href="#creacion-de-nuevos-apartados-en-la-guia"><p>Creación de nuevos apartados en la guía.</p>
+</a><ul><li><a href="#creacion-de-archivos-necesarios"><p>Creación de archivos necesarios.</p>
+</a></li></ul></li><li><a href="#edicion-de-archivos-textile"><p>Edición de archivos .textile</p>
+</a><ul><li><a href="#guia-basica-textile"><p>Guía básica textile</p>
+</a></li></ul></li><li><a href="#previsualizacion-de-una-guia"><p>Previsualización de una guía</p>
+</a></li><li><a href="#generacion-del-codigo-html-de-la-guia"><p>Generación del código html de la guía.</p>
+</a></li>
+        </ol>
+      </div>
+      
+    </div>
+  </div>
+
+  <div id="container">
+    <div class="wrapper">
+      <div id="mainCol">
+        <h3 id="generacion-de-la-estructura-de-la-guia">1 Generación de la estructura de la guía</h3>
+<p>Para generar la estructura de una guía con Rails Guides debemos hacer uso de la gema guides instalada previamente. Simplemente debemos ejecutar, en el directorio en el cual queramos generar la guía el comando:</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+guides new nombre_guia
+</pre></div><p>Se nos generará en la carpeta nombre_guia un directorio con la siguiente estructura de carpetas y archivos:</p>
+<ul>
+	<li><strong>assets</strong>: Contendrá las imágenes, los javascript y los estilos css utilizados en nuestra guía.
+	<ul>
+		<li>images</li>
+		<li>javascripts</li>
+		<li>stylesheets</li>
+	</ul></li>
+	<li><strong>source</strong>: Contiene el código fuente en formato html y textile de cada una de las páginas de nuestra guía.</li>
+	<li>guides.yml: En este archivo se define el título, la descripción, autores y las páginas principales que van a formar nuestra guía.</li>
+</ul>
+<h3 id="edicion-del-archivo-guides-yml">2 Edición del archivo guides.yml</h3>
+<p>Cómo hemos visto en el apartado anterior en el archivo guides.yml estará definida la estructura principal de nuestra guía así como el título de la misma, su descripción y otros datos extra como los autores de la misma. Vamos a ver un ejemplo de cómo está definido.</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+title: &quot;Creación de guías con Rails Guides&quot; #Título de nuestra guía
+description: Esta guía mostrará los pasos a seguir para generar nuevas guías con Rails Guides #Descripción de la guía
+
+authors: #Autores de la guía
+  &quot;Autor de la guía&quot;: #Función del listado de autores (Texto, Diseño....) puede contener un listado de autores. (Un autor por cada - name:)
+    - name: Hugo Santos
+      nick: hugosantos     
+
+
+index: #Contiene cada uno de los apartados que van a conformar nuestra guía
+  &quot;1.- Empieza Aquí&quot;: #Cada entrada a este nivel se corresponderá con un apartado principal en la home
+    #Cada entrada al mismo nivel que - title será un subapartado perteneciente
+    #al apartado principal en el que está descrito
+    - title: Requisitos Necesarios #Será el titulo del subapartado
+      url: requisitos_necesarios #Si se encuentra un archivo del mismo nombre en la carpeta sources en formato textile se generará un enlace automáticamente al mismo
+      text: Instalación de los requisitos necesarios para la creación de nuevas guías. #Descripción de este subapartado
+  &quot;2.- Creación de guías&quot;:
+    - title: Creación de una nueva guía
+      url: creacion_guia
+      text: Pasos necesarios para la creación de una nueva guía.
+</pre></div><h3 id="creacion-de-nuevos-apartados-en-la-guia">3 Creación de nuevos apartados en la guía.</h3>
+<h4 id="creacion-de-archivos-necesarios">3.1 Creación de archivos necesarios.</h4>
+<p>Como hemos visto en el apartado anterior por cada subapartado tendremos una url definida y para que se genere un enlace al subapartado correspondiente debemos tener un archivo .textile llamado exactamente igual que esta url dentro de la carpeta sources.</p>
+<p>Por este motivo para cada url debemos crear dentro de la carpeta sources su correspondiente archivo. Por ejemplo según nuestro archivo de configuración yml en el cual tendremos la siguiente entrada:</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+    - title: Creación de una nueva guía
+      url: creacion_guia
+      text: Pasos necesarios para la creación de una nueva guía.
+</pre></div><p>Tendremos que crear entonces el archivo creacion_guia.textile dentro de la carpeta source.</p>
+<h3 id="edicion-de-archivos-textile">4 Edición de archivos .textile</h3>
+<p>Para editar un archivo .textile solamente se necesita un editor de texto plano y unos conocimientos básicos del lenguaje textile.</p>
+<h4 id="guia-basica-textile">4.1 Guía básica textile</h4>
+<p>Puede seguirse una guía básica de textile <a href="http://tutorialcyclope3.codigosur.net/article/el-lenguaje-de-marcado-textile/">aquí</a></p>
+<h5 id="notaciones-especiales-textile-rails-guides">4.1.1 Notaciones especiales textile Rails Guides</h5>
+<ul>
+	<li>Para definir el texto del título de la página y su descripción:</li>
+</ul>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+    h2. Creación de una guía #El título de este apartado
+
+    #Aquí empieza la descripción de este apartado de la guía
+    Pasos necesarios para la creación de una nueva guía. Desde la estructura de la misma a la edición de los archivos textile
+
+    endprologue. #Hay que poner este marcado para indicar la finalización de la cabecera de la guía (Título y descripción)
+</pre></div><ul>
+	<li>Para definir un cápitulo en el apartado (Se establecerán automáticamente las entradas al menú de capitulos):</li>
+</ul>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+    #Los capitulos dentro del apartado se definen mediante la marca textile h3.
+    #Los subapartados de un capítulo se definen mediante las marcas h4. h5. ....
+
+    h3. Creación de nuevos apartados en la guía. # 1.
+    h4. Guía Básica textile # 1.1
+    h5. Subentrada de h4. # 1.1.1
+    h5. Otra subentrada # 1.1.2
+    h4. Hijo de h3. # 1.2
+    h5. hijo de este h4. # 1.2.1
+
+</pre></div><ul>
+	<li>Hay que tener en cuenta que solamente se generarán las entradas del menú para los marcados <code>h3.</code> y <code>h4.</code></li>
+</ul>
+<h5 id="otras-notaciones-utiles-de-textile">4.1.2 Otras notaciones útiles de textile</h5>
+<ul>
+	<li>Alineación de parrafos:
+	<ul>
+		<li>Podemos alinear el texto de los parrafos a la izquierda, a la derecha o al centro forzando el tag del parrafo y la marca de alineación (&lt;,&gt;,=)</li>
+	</ul></li>
+</ul>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+    p&lt;. Esto será un parrafo alineado a la izquierda
+    p&gt;. Esto será un parrafo alineado a la derecha
+    p=. Esto será un parrafo centrado
+</pre></div><ul>
+	<li>Inserción de imagenes
+	<ul>
+		<li>Es posible insertar imagenes mediante el siguiente código</li>
+	</ul></li>
+</ul>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+    !url_imagen!
+
+    #Ejemplo
+    !http://www.google.es/logos/2011/stbasilscathedral11-hp.jpg!
+
+    #Es posible alinear la imagen a un parrafo usando los tags de alineación como hemos visto anteriormente
+    p=. !http://www.google.es/logos/2011/stbasilscathedral11-hp.jpg!
+</pre></div><ul>
+	<li>La imágen centrada quedaría así:</li>
+</ul>
+<p style="text-align:center;"><img src="http://www.google.es/logos/2011/stbasilscathedral11-hp.jpg" alt="" /></p>
+<ul>
+	<li>Para el resto de marcados puede usarse la notación textile vista anteriormente.</li>
+</ul>
+<h3 id="previsualizacion-de-una-guia">5 Previsualización de una guía</h3>
+<p>Podemos previsualizar cómo va a quedar una guía colocandonos con la terminal en el directorio principal de la guía y ejecutando el siguente comando:</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+    guides preview
+</pre></div><p>Esto generará un servidor al cual podremos acceder mediante un navegador en la dirección <a href="http://localhost:9292">localhost:9292</a></p>
+<h3 id="generacion-del-codigo-html-de-la-guia">6 Generación del código html de la guía.</h3>
+<p>Una vez finalizada la guía el último paso a realizar es la generación del código fuente html para nuestra guía.</p>
+<p>Para ello simplemente debemos situarnos con la terminal en el directorio de nuestra guía y ejecutar el siguiente comando:</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: false">
+
+    guides build
+</pre></div><p>Este comando generará un nuevo directorio llamado output que contendrá las imagenes, javascripts, css y los archivos html generados para nuestra guía y listos para su distribución.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="hide" />
+  <div id="footer">
+    <div class="wrapper">
+      
+    </div>
+  </div>
+
+  <script type="text/javascript" src="javascripts/guides.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shCore.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushRuby.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushJScript.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushCss.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushXml.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushSql.js"></script>
+  <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushPlain.js"></script>
+  <script type="text/javascript">
+    SyntaxHighlighter.all()
+  </script>
+</body>
+</html>

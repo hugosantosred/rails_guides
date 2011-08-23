@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title><%= yield(:page_title) %></title>
+<title>Creación de guías con Rails Guides</title>
 
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
 <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
@@ -15,41 +15,35 @@
 
 <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
 <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
-
-<script type="text/javascript" src="javascripts/jquery-1.4.3.min.js"></script>
-<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-
-<script type="text/javascript">
-		$(document).ready(function() {
-			$("a#gallery").fancybox({
-				'width'				: '1024px',				
-				'autoScale'			: true,				
-			});
-			});
-</script>
 </head>
 <body class="guide">
-  <% if @edge %>
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
-  <% end %>
   <div id="topNav">
     <div class="wrapper">
-      <%= yield :top_nav %>
+      
+
     </div>
   </div>
   <div id="header">
     <div class="wrapper clearfix">
-      <h1><a href="index.html" title="Return to home page"><%= Guides.meta["title"] %></a></h1>
+      <h1><a href="index.html" title="Return to home page">Creación de guías con Rails Guides</a></h1>
       <p class="hide"><a href="#mainCol">Skip navigation</a>.</p>
       <ul class="nav">
         <li><a href="index.html">Inicio</a></li>
         <li class="index"><a href="index.html" onclick="guideMenu(); return false;" id="guidesMenu">Indice <span id="guidesArrow">&#9656;</span></a>
           <div id="guides" class="clearfix" style="display: none;">
             <hr />
-            <%= clickable_index %>
+            <dl class="L">
+    <dt>1.- Empieza Aquí</dt>
+      <dd><a href="requisitos_necesarios.html">1.- Requisitos Necesarios</a></dd>
+    <dt>3.- Repository Hosting</dt>
+      <dd><a href="repository_hosting.html">3.- Repository Hosting</a></dd>
+</dl>
+<dl class="R">
+    <dt>2.- Creación de guías</dt>
+      <dd><a href="creacion_guia.html">2.- Creación de una nueva guía</a></dd>
+</dl>
+
+
           </div>
         </li>        
         <li><a href="credits.html">Creditos</a></li>
@@ -60,18 +54,8 @@
 
   <div id="feature">
     <div class="wrapper">
-    <% if header_section = yield(:header_section).presence %>
-      <%= header_section %>
-      <div id="subCol">
-        <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Cápitulos</h3>
-        <ol class="chapters">
-          <%= yield(:index_items) %>
-        </ol>
-      </div>
-    <% else %>
-      <h2><%= Guides.meta["title"] %></h2>
-      <p><%= Guides.meta["description"] %></p>
-    <% end %>
+      <h2>Creación de guías con Rails Guides</h2>
+      <p>Esta guía mostrará los pasos a seguir para generar nuevas guías con Rails Guides</p>
       
     </div>
   </div>
@@ -79,7 +63,33 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <%= yield %>
+          <h3>1.- Empieza Aquí</h3>
+
+  <dl>
+      <dt><a href="requisitos_necesarios.html">1.- Requisitos Necesarios</a></dt>
+      <dd>
+        <p>Instalación de los requisitos necesarios para la creación de nuevas guías.</p>
+      </dd>
+  </dl>
+  <h3>3.- Repository Hosting</h3>
+
+  <dl>
+      <dt><a href="repository_hosting.html">3.- Repository Hosting</a></dt>
+      <dd>
+        <p>Subir guías a repository hosting</p>
+      </dd>
+  </dl>
+  <h3>2.- Creación de guías</h3>
+
+  <dl>
+      <dt><a href="creacion_guia.html">2.- Creación de una nueva guía</a></dt>
+      <dd>
+        <p>Pasos necesarios para la creación de una nueva guía.</p>
+      </dd>
+  </dl>
+
+
+
       </div>
     </div>
   </div>
@@ -87,7 +97,14 @@
   <hr class="hide" />
   <div id="footer">
     <div class="wrapper">
-      <%= yield :license %>
+      
+  <p>This work is licensed under a
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike 3.0</a>
+    license.
+  </p>
+  <p>
+  </p>
+
     </div>
   </div>
 

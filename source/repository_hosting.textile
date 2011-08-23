@@ -1,0 +1,83 @@
+h2. Repository Hosting
+
+endprologue.
+
+h3. Creación de un nuevo repositorio en Repository Hosting
+
+Lo primero que debemos hacer es crear un nuevo repositorio Git en nuestra página personalizada de Repository Hosting
+
+NOTE: "ting.repositoryhosting.com":https://ting.repositoryhosting.com
+
+Una vez que hemos iniciado sesión con nuestro usuario y contraseña aparecerá el dashboard con todos los proyectos actuales.
+
+p=. <a id="gallery" href="images/dashboard.png">!{width:630px}images/dashboard.png!</a>
+
+El siguiente paso será crear el repositorio que va a alojar nuestra guía. Para ello haremos click en Create Project, rellenamos los datos del proyecto, establecemos que el sistema de repositorio va a ser git, seleccionamos que es de la categoría Manuales y guías y le damos a crear.
+
+p=. <a id="gallery" href="images/nuevo_proyecto.png">!{width:630px}images/nuevo_proyecto.png!</a>
+
+Una vez completados estos pasos ya tenemos nuestro repositorio creado.
+
+h3. Creación de repositorio git en local (Solamente si no está creado)
+
+Debemos tener nuestra guía controlada con git también en local. Para realizar esto debemos situarnos en el directorio que contiene la guía y ejecutar:
+
+<ruby>git init</ruby>
+
+El siguiente paso será asociar el repositorio remoto con el repositorio local. Para ello hacemos click en settings a la derecha del nombre del proyecto en el dashboard y aparecerá la siguiente pantalla.
+
+p=. <a id="gallery" href="images/settings_repository.png">!{width:630px}images/settings_repository.png!</a>
+
+NOTE: La dirección de nuestro repositorio remoto que vamos a usar es la dirección que aparece en repository urls con el formato ssh. En el caso del repositorio de esta guía: ssh://git@ting.repositoryhosting.com/ting/manual-guias.git
+
+Una vez tengamos localizada la dirección de nuestro repositorio remoto tendremos que ejecutar los siguientes comandos en nuestro repositorio local.
+
+<ruby>
+git remote add origin ssh://git@ting.repositoryhosting.com/ting/manual-guias.git
+git config remote.origin.push refs/heads/master:refs/heads/master
+</ruby>
+
+h3. Subir cambios al repositorio remoto
+
+Para subir cambios al repositorio remoto tendremos que ejecutar, desde el directorio del repositorio, los siguientes comandos:
+
+<ruby>
+git add .
+</ruby>
+
+Este comando añade los ficheros nuevos que hemos creado (salvo que se encuentren especificamente en el fichero .gitignore) y los ficheros que hemos cambiado a la lista de cambios del repositorio.
+
+<ruby>
+git commit -m "Cambios que has realizado"
+</ruby>
+
+El comando git commit confirma todos los cambios realizados y añade a ese commit la descripción pasada mediante el parámetro -m
+
+El siguiente paso sería subir estos cambios que hemos realizado a nuestro repositorio remoto.
+
+<ruby>
+git push origin master
+</ruby>
+
+Con este comando le estamos indicando que suba los cambios al repositorio remoto llamado origin (Lo hemos configurado así al añadirlo) y que suba los cambios de la rama master del repositorio.
+
+Una vez completado esto tendremos nuestra guía subida a repository hosting.
+
+h3. Clonar guías del repositorio remoto y descargar sus cambios
+
+Si queremos descargarnos una guía de repository hosting tenemos que clonar su repositorio en nuestro ordenador. Para ello ejecutamos el comando:
+
+<ruby>
+git clone ssh://git@ting.repositoryhosting.com/ting/manual-guias.git
+</ruby>
+
+Este comando descargará la rama actual de ese repositorio, creando un directorio llamado manual-guias dentro del directorio desde el que hayamos ejecutado ese comando.
+
+h4. Descargar cambios del repositorio
+
+Si ya tenemos un repositorio clonado en nuestro ordenador (o un repositorio creado por nosotros y subido) podemos descargar los últimos cambios que se han producido en el con el siguiente comando:
+
+<ruby>
+git pull origin master
+</ruby>
+ 

@@ -17,3 +17,7 @@ index:
     - title: Creación de una nueva guía
       url: creacion_guia
       text: Pasos necesarios para la creación de una nueva guía.
+  "3.- Repository Hosting":
+    - title: Repository Hosting
+      url: repository_hosting
+      text: Subir guías a repository hosting

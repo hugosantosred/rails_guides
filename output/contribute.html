@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title><%= yield(:page_title) %></title>
+<title>Creación de guías con Rails Guides: Contribute</title>
 
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
 <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
@@ -30,26 +30,32 @@
 </script>
 </head>
 <body class="guide">
-  <% if @edge %>
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
-  <% end %>
   <div id="topNav">
     <div class="wrapper">
-      <%= yield :top_nav %>
+      
     </div>
   </div>
   <div id="header">
     <div class="wrapper clearfix">
-      <h1><a href="index.html" title="Return to home page"><%= Guides.meta["title"] %></a></h1>
+      <h1><a href="index.html" title="Return to home page">Creación de guías con Rails Guides</a></h1>
       <p class="hide"><a href="#mainCol">Skip navigation</a>.</p>
       <ul class="nav">
         <li><a href="index.html">Inicio</a></li>
         <li class="index"><a href="index.html" onclick="guideMenu(); return false;" id="guidesMenu">Indice <span id="guidesArrow">&#9656;</span></a>
           <div id="guides" class="clearfix" style="display: none;">
             <hr />
-            <%= clickable_index %>
+            <dl class="L">
+    <dt>1.- Empieza Aquí</dt>
+      <dd><a href="requisitos_necesarios.html">Requisitos Necesarios</a></dd>
+    <dt>3.- Repository Hosting</dt>
+      <dd><a href="repository_hosting.html">Repository Hosting</a></dd>
+</dl>
+<dl class="R">
+    <dt>2.- Creación de guías</dt>
+      <dd><a href="creacion_guia.html">Creación de una nueva guía</a></dd>
+</dl>
+
+
           </div>
         </li>        
         <li><a href="credits.html">Creditos</a></li>
@@ -60,18 +66,21 @@
 
   <div id="feature">
     <div class="wrapper">
-    <% if header_section = yield(:header_section).presence %>
-      <%= header_section %>
+      <h2>Contribute</h2>
+<p>Replace this with some introductory material on contributing</p>
+
       <div id="subCol">
         <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Cápitulos</h3>
         <ol class="chapters">
-          <%= yield(:index_items) %>
+          <li><a href="#how-to-contribute"><p>How to Contribute?</p>
+</a></li><li><a href="#what-to-contribute"><p>What to Contribute?</p>
+</a></li><li><a href="#how-is-the-process"><p>How is the process?</p>
+</a></li><li><a href="#rules"><p>Rules</p>
+</a></li><li><a href="#mailing-list"><p>Mailing List</p>
+</a></li><li><a href="#contact"><p>Contact</p>
+</a></li>
         </ol>
       </div>
-    <% else %>
-      <h2><%= Guides.meta["title"] %></h2>
-      <p><%= Guides.meta["description"] %></p>
-    <% end %>
       
     </div>
   </div>
@@ -79,7 +88,50 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <%= yield %>
+        <h3 id="how-to-contribute">1 How to Contribute?</h3>
+<ul>
+	<li>Make a list</li>
+	<li>of useful information</li>
+	<li>on contributing</li>
+</ul>
+<h3 id="what-to-contribute">2 What to Contribute?</h3>
+<ul>
+	<li>We need authors, editors, proofreaders, and translators. Adding a single paragraph of quality content to a guide is a good way to get started.</li>
+	<li>The easiest way to start is by improving an existing guide:
+	<ul>
+		<li>Improve the structure to make it more coherent.</li>
+		<li>Add missing information.</li>
+		<li>Correct any factual errors.</li>
+		<li>Fix typos or improve style.</li>
+		<li>Bring it up to date with the latest Edge Rails.</li>
+	</ul></li>
+	<li>We&#8217;re also open to suggestions for entire new guides:
+	<ul>
+		<li>Contact REPLACE_THIS to get your idea approved. See the Contact section below.</li>
+	</ul></li>
+</ul>
+<h3 id="how-is-the-process">3 How is the process?</h3>
+<ul>
+	<li>Describe the process</li>
+	<li>you will use</li>
+	<li>in this section</li>
+</ul>
+<h3 id="rules">4 Rules</h3>
+<ul>
+	<li>Guides are licensed under a Creative Commons Attribution-Share Alike 3.0 License.</li>
+	<li>If you&#8217;re not sure whether a guide is actively being worked on, stop by <span class="caps">IRC</span> and ask.</li>
+	<li>Set up additional rules here</li>
+</ul>
+<p><span class="caps">TODO</span>: Set up some conventions for authors to follow. https://github.com/lifo/docrails/wiki/rails-guides-conventions Is a good starting poing</p>
+<h3 id="mailing-list">5 Mailing List</h3>
+<p><span class="caps">TODO</span>: Specify the mailing list where people can ask about the efforts</p>
+<h3 id="contact">6 Contact</h3>
+<ul>
+	<li><span class="caps">IRC</span> : <span class="caps">TODO</span></li>
+	<li>Twitter: <span class="caps">TODO</span></li>
+	<li>Email : <span class="caps">TODO</span></li>
+</ul>
+
       </div>
     </div>
   </div>
@@ -87,7 +139,7 @@
   <hr class="hide" />
   <div id="footer">
     <div class="wrapper">
-      <%= yield :license %>
+      
     </div>
   </div>
 
